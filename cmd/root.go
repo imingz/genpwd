@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"os"
 
+	"github.com/atotto/clipboard"
 	"github.com/spf13/cobra"
 )
 
@@ -51,7 +52,13 @@ var rootCmd = &cobra.Command{
 			password[i] = chars[rand.Intn(len(chars))]
 		}
 
-		fmt.Println(string(password))
+		passwordStr := string(password)
+		fmt.Println("生成密码：" + passwordStr)
+		if err := clipboard.WriteAll(passwordStr); err != nil {
+			fmt.Println("错误：无法复制到剪贴板")
+			return
+		}
+		fmt.Println("已复制到剪贴板")
 	},
 }
 
