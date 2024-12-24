@@ -84,5 +84,5 @@ func init() {
 	rootCmd.Flags().BoolP("upper", "A", true, "包含大写字母"+upperCase)
 	rootCmd.Flags().BoolP("lower", "a", true, "包含小写字母"+lowerCase)
 	rootCmd.Flags().BoolP("number", "0", true, "包含数字"+digits)
-	rootCmd.Flags().BoolP("special", "!", true, "包含特殊字符"+specialChar)
+	rootCmd.Flags().BoolP("special", "!", false, "包含特殊字符"+specialChar)
 }
